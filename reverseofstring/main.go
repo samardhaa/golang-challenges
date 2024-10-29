@@ -1,21 +1,30 @@
-// Program to reverse the input of the given string
-
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
 func main() {
-	fmt.Println("Program to reverse the given string")
 
-	input := "hello there!"
+	fmt.Println("string reverse function")
 
-	fmt.Println("given input:", input)
+	fmt.Print("Enter the string: ")
 
-	fmt.Println(reverseString(input))
+	reader := bufio.NewReader(os.Stdin)
+	input, _ := reader.ReadString('\n')
+
+	input = strings.TrimSpace(input)
+
+	fmt.Println("Given string :", input)
+
+	fmt.Println("Reverse of the given string :", stringReverse(input))
 
 }
 
-func reverseString(s string) string {
+func stringReverse(s string) string {
 
 	result := []rune(s)
 
@@ -34,5 +43,3 @@ func reverseString(s string) string {
 	return string(result)
 
 }
-
-// if your goal is character-based manipulation, []rune is the right choice. But for byte-level manipulation or ASCII-only data, []byte works well
